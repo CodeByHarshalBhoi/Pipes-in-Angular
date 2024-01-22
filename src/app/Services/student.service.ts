@@ -23,5 +23,19 @@ CreateStudent(name: any, gender: any, dob: any, course: any, marks: any, fee: an
     let id = this.students.length + 1;
     let student = new Student(id, name, gender, dob, course, marks, fee);
     this.students.push(student);
+
+    // let studntCopy=[...this.students]
+    // studntCopy.push(student);
+    // this.students = studntCopy;
+}
+
+fiterStudentByGender(filterBy:string){
+  if(filterBy.toLowerCase() === 'all'|| filterBy === ''|| this.students.length === 0){
+    return this.students;
+  }else{
+    return this.students.filter((data)=>{
+      return data.gender.toLowerCase() === filterBy.toLowerCase();
+    })
+  }
 }
 }
